@@ -30,6 +30,12 @@ const getColor = (color) => {
   return "#000000";
 };
 
+const getColorName = (colorCode) => {
+  // Find the nearest match
+  const match = window.ntc.name(colorCode);
+  return match[1];
+};
+
 function ColorCodes() {
   let { colors } = useParams();
   let parsedColors = parseBgColors(colors);
@@ -38,10 +44,21 @@ function ColorCodes() {
     <div className="d-inline-sm-flex d-md-flex">
       {parsedColors.map((elm, key) => (
         <div
-          className="text-center p-2"
+          className="text-center p-2 color-cont"
           key={key}
           style={{ backgroundColor: elm, color: getColor(elm) }}
+          onClick={(e) => {
+            navigator.clipboard.writeText(e.target.children[1]?.innerText).then(
+              function () {
+                console.log("Async: Copying to clipboard was successful!");
+              },
+              function (err) {
+                console.error("Async: Could not copy text: ", err);
+              }
+            );
+          }}
         >
+          <span className="colorCode colorName">{getColorName(elm)}</span>
           <span className="colorCode">{elm}</span>
         </div>
       ))}

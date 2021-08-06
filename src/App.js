@@ -2,6 +2,7 @@
 import { BrowserRouter, Redirect, Route } from "react-router-dom";
 import "./App.css";
 import ColorCodes from "./components/ColorCodes";
+import GenerateColors from "./components/GenerateColors";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -13,16 +14,16 @@ function App() {
           <Route exact path="/">
             <Redirect
               to={{
-                pathname: "/55dd88",
+                pathname: "/generate",
               }}
             />
           </Route>
-          <Route path="/generate">
-            <h1>generate page</h1>
+          <Route exact path="/generate">
+            <GenerateColors />
           </Route>
           <Route path="/:colors">
-            <ColorCodes/>
-          </Route>{" "}
+            <ColorCodes />
+          </Route>
         </div>
       </div>
     </BrowserRouter>
