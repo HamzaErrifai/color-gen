@@ -47,16 +47,6 @@ function ColorCodes() {
           className="text-center p-2 color-cont"
           key={key}
           style={{ backgroundColor: elm, color: getColor(elm) }}
-          onClick={(e) => {
-            navigator.clipboard.writeText(e.target.children[1]?.innerText).then(
-              function () {
-                console.log("Async: Copying to clipboard was successful!");
-              },
-              function (err) {
-                console.error("Async: Could not copy text: ", err);
-              }
-            );
-          }}
         >
           <span className="colorCode colorName">{getColorName(elm)}</span>
           <span className="colorCode">{elm}</span>
