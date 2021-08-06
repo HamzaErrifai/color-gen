@@ -2,9 +2,38 @@
   color: #941fbd;
   font-weight: bolder;
   font-size: 1.6em;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-.colorCode{
-  font-family: 'Poppins', sans-serif;
+.colorCode {
+  font-family: "Poppins", sans-serif;
+}
+
+.content {
+  width: 100%;
+  margin-top: 0px;
+  margin-top: 60px;
+  display: grid;
+}
+
+.sub-nav {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  border-top: 1px solid #dee2e6 !important;
+  padding: 4px 4px 4px 4px;
+  box-shadow: rgb(0 0 0 / 11%) 0 -1px;
+}
+
+
+@media screen and (max-width: 766px) {
+  .content {
+    margin-top: 0px;
+    margin-bottom: 60px;
+  }
+  .sub-nav {
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+  }
 }
